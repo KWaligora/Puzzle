@@ -201,6 +201,8 @@ void UPuzzlePlatformsGameInstance::CreateSession()
 		SessionSettings.bIsLANMatch = false;
 		SessionSettings.NumPublicConnections = 2;
 		SessionSettings.bShouldAdvertise = true;
+		SessionSettings.bUsesPresence = true;
+		SessionSettings.bUseLobbiesIfAvailable = true;
 		SessionInteface->CreateSession(0, SESSION_NAME, SessionSettings);
 	}	
 }
