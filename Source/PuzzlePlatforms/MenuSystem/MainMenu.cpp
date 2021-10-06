@@ -49,7 +49,8 @@ void UMainMenu::HostServer()
 	}
 }
 
-void UMainMenu::SetServerList(TArray<FString> ServerNames)
+// Load List of servers in join menu
+void UMainMenu::SetServerList(TArray<FServerData> ServerData)
 {
 	UWorld* World =  this->GetWorld();
 	if(!ensure(World != nullptr)) return;
@@ -57,11 +58,13 @@ void UMainMenu::SetServerList(TArray<FString> ServerNames)
 	ServerList->ClearChildren();
 
 	uint32 i = 0;
-	for(const FString& ServerName : ServerNames)
+	for(const FServerData& Data : ServerData)
 	{
 		UServerRow* Row = CreateWidget<UServerRow>(World, ServerRowClass);
 		if(!ensure(Row!= nullptr)) return;
-		Row->ServerName->SetText(FText::FromString(ServerName));
+		Row->ServerName->SetText(FText::FromString(Data.Name));
+		Row->HostName->SetText(FText::FromString(Data.HostName));
+		Row->ConnectionFraction->SetText(FText::FromString(FString::Printf(TEXT("%d/%d"), Data.CurrentPlayers, Data.MaxPlayers)));
 		Row->Setup(this, i);
 		++i;
 		
@@ -75,6 +78,7 @@ void UMainMenu::SelectIndex(uint32 Index)
 	UpdateChildren();
 }
 
+//Update selected server
 void UMainMenu::UpdateChildren()
 {
 	for(int32 i = 0; i<ServerList->GetChildrenCount(); i++)
@@ -119,6 +123,7 @@ void UMainMenu::OpenMainMenu()
 	MenuSwitcher->SetActiveWidget(MainMenu);
 }
 
+// On Game quit
 void UMainMenu::QuitPressed()
 {
 	UWorld* World = GetWorld();
