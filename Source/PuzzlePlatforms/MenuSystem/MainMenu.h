@@ -66,7 +66,7 @@ private:
 	UPROPERTY(meta = (BindWidget))
 	class UWidget* HostMenu;
 
-	UPROPERTY()
+	UPROPERTY(meta = (BindWidget))
 	class UEditableTextBox* ServerName;
 	
 	UPROPERTY(meta = (BindWidget))
