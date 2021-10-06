@@ -2,6 +2,7 @@
 
 #include "MainMenu.h"
 
+#include "EditableTextBox.h"
 #include "Components/Button.h"
 #include "Components/WidgetSwitcher.h"
 #include "UObject/ConstructorHelpers.h"
@@ -24,7 +25,7 @@ bool UMainMenu::Initialize()
 	if (!Success) return false;
 	
 	if (!ensure(HostButton != nullptr)) return false;
-	HostButton->OnClicked.AddDynamic(this, &UMainMenu::HostServer);
+	HostButton->OnClicked.AddDynamic(this, &UMainMenu::OpenHostMenu);
 
 	if (!ensure(JoinButton != nullptr)) return false;
 	JoinButton->OnClicked.AddDynamic(this, &UMainMenu::OpenJoinMenu);
@@ -38,6 +39,12 @@ bool UMainMenu::Initialize()
 	if (!ensure(ConfirmJoinMenuButton != nullptr)) return false;
 	ConfirmJoinMenuButton->OnClicked.AddDynamic(this, &UMainMenu::JoinServer);
 
+	if(!ensure(HostMenuCancel != nullptr)) return false;
+	HostMenuCancel->OnClicked.AddDynamic(this, &UMainMenu::OpenMainMenu);
+
+	if(!ensure(HostMenuHost != nullptr)) return false;
+	HostMenuHost->OnClicked.AddDynamic(this, &UMainMenu::HostServer);
+
 	return true;
 }
 
@@ -45,7 +52,7 @@ void UMainMenu::HostServer()
 {
 	if (MenuInterface != nullptr)
 	{
-		MenuInterface->Host();
+		MenuInterface->Host(ServerName->Text.ToString());
 	}
 }
 
@@ -119,8 +126,15 @@ void UMainMenu::OpenJoinMenu()
 void UMainMenu::OpenMainMenu()
 {
 	if (!ensure(MenuSwitcher != nullptr)) return;
-	if (!ensure(JoinMenu != nullptr)) return;
+	if (!ensure(MainMenu != nullptr)) return;
 	MenuSwitcher->SetActiveWidget(MainMenu);
+}
+
+void UMainMenu::OpenHostMenu()
+{
+	if (!ensure(MenuSwitcher != nullptr)) return;
+	if (!ensure(HostMenu != nullptr)) return;
+	MenuSwitcher->SetActiveWidget(HostMenu);
 }
 
 // On Game quit

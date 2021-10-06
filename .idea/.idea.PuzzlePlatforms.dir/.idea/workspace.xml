@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="64e28493-32f6-4d7d-a66a-325d1d97e661" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PuzzlePlatforms.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PuzzlePlatforms.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/MenuSystem/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MenuSystem/WBP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MainMenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MainMenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MainMenu.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MainMenu.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MenuInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/MenuSystem/MenuInterface.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,7 @@
       <workItem from="1632854804843" duration="265000" />
       <workItem from="1633109558131" duration="2294000" />
       <workItem from="1633163963200" duration="837000" />
-      <workItem from="1633504016926" duration="4514000" />
+      <workItem from="1633504016926" duration="8100000" />
     </task>
     <servers />
   </component>
