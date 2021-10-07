@@ -2,6 +2,8 @@
 
 
 #include "LobbyGameMode.h"
+#include "TimerManager.h"
+#include "PuzzlePlatformsGameInstance.h"
 
 void ALobbyGameMode::PostLogin(APlayerController* NewPlayer)
 {
@@ -9,11 +11,7 @@ void ALobbyGameMode::PostLogin(APlayerController* NewPlayer)
 	
 	if(GetNumPlayers() >= 3)
 	{
-		UWorld* World = GetWorld();
-		if(!ensure(World != nullptr)) return;
-
-		bUseSeamlessTravel = true;
-		World->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");			
+		GetWorldTimerManager().SetTimer(GameStartTimer, this, &ALobbyGameMode::StartGame, 5);
 	}		
 }
 
@@ -21,4 +19,17 @@ void ALobbyGameMode::Logout(AController* Exiting)
 {
 	Super::Logout(Exiting);
 	
+}
+
+void ALobbyGameMode::StartGame()
+{
+	UPuzzlePlatformsGameInstance* GameInstance = Cast<UPuzzlePlatformsGameInstance>(GetGameInstance());
+	if(GameInstance == nullptr) return;
+	GameInstance->StartSession();
+	
+	UWorld* World = GetWorld();
+	if(!ensure(World != nullptr)) return;
+			
+	bUseSeamlessTravel = true;
+	World->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
 }
