@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64e28493-32f6-4d7d-a66a-325d1d97e661" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PuzzlePlatforms.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PuzzlePlatforms.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PuzzlePlatforms/Maps/Lobby.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PuzzlePlatforms/Maps/Lobby.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +93,8 @@
       <workItem from="1633504016926" duration="9255000" />
       <workItem from="1633539714245" duration="763000" />
       <workItem from="1633540523200" duration="1920000" />
+      <workItem from="1633591280785" duration="596000" />
+      <workItem from="1633593623795" duration="2296000" />
     </task>
     <servers />
   </component>

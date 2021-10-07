@@ -11,7 +11,6 @@
 #include "MenuSystem/MainMenu.h"
 #include "MenuSystem/MenuWidget.h"
 
-const static FName SESSION_NAME = TEXT("My Session name");
 const static FName SERVER_NAME_SETTINGS_KEY = TEXT("ServerName");
 
 UPuzzlePlatformsGameInstance::UPuzzlePlatformsGameInstance(const FObjectInitializer & ObjectInitializer)
@@ -78,10 +77,10 @@ void UPuzzlePlatformsGameInstance::Host(FString ServerName)
 	DesireServerName = ServerName;
 	if(SessionInteface.IsValid())
 	{
-		FNamedOnlineSession* ExistingSession = SessionInteface->GetNamedSession(SESSION_NAME);
+		FNamedOnlineSession* ExistingSession = SessionInteface->GetNamedSession(NAME_GameSession);
 		if(ExistingSession != nullptr)
 		{
-			SessionInteface->DestroySession(SESSION_NAME);
+			SessionInteface->DestroySession(NAME_GameSession);
 		}
 		else
 		{
@@ -99,7 +98,7 @@ void UPuzzlePlatformsGameInstance::Join(uint32 Index)
 		Menu->Teardown();
 	}
 
-	SessionInteface->JoinSession(0, SESSION_NAME, SessionSearch->SearchResults[Index]);
+	SessionInteface->JoinSession(0, NAME_GameSession, SessionSearch->SearchResults[Index]);
 }
 
 void UPuzzlePlatformsGameInstance::LoadMainMenu()
@@ -210,11 +209,11 @@ void UPuzzlePlatformsGameInstance::CreateSession()
 			SessionSettings.bIsLANMatch = true;		
 		else
 			SessionSettings.bIsLANMatch = false;		
-		SessionSettings.NumPublicConnections = 2;
+		SessionSettings.NumPublicConnections = 3;
 		SessionSettings.bShouldAdvertise = true;
 		SessionSettings.bUsesPresence = true;
 		SessionSettings.bUseLobbiesIfAvailable = true;
 		SessionSettings.Set(SERVER_NAME_SETTINGS_KEY, DesireServerName, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
-		SessionInteface->CreateSession(0, SESSION_NAME, SessionSettings);
+		SessionInteface->CreateSession(0, NAME_GameSession, SessionSettings);
 	}	
 }
